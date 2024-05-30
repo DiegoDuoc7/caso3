@@ -11,6 +11,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AportarComponent } from './aportacion/aportar/aportar.component';
 import { FormularioComponent } from './aportacion/formulario/formulario.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SobreNosotrosComponent } from './sobre-nosotros/sobre-nosotros.component';
+import { ContactoComponent } from './contacto/contacto.component';
+import { ServiciosComponent } from './servicios/servicios.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     AportadorComponent,
     AportarComponent,
-    FormularioComponent
+    FormularioComponent,
+    SobreNosotrosComponent,
+    ContactoComponent,
+    ServiciosComponent
   ],
   imports: [
     BrowserModule,

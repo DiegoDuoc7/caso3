@@ -1,0 +1,67 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 class="display-4 mb-4">Contáctanos</h1>
+      <p class="lead">Si tienes alguna pregunta, comentario o deseas más información sobre nuestros servicios, no dudes en ponerte en contacto con nosotros. Estamos aquí para ayudarte.</p>
+      <hr class="my-4">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre" placeholder="Tu nombre">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" placeholder="nombre@ejemplo.com">
+        </div>
+        <div class="mb-3">
+          <label for="mensaje" class="form-label">Mensaje</label>
+          <textarea class="form-control" id="mensaje" [(ngModel)]="mensaje" name="mensaje" rows="3" placeholder="Escribe tu mensaje aquí"></textarea>
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="card-title">Dirección</h5>
+          <p class="card-text">Antonio Varas 667, Providencia, Santiago, Chile</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="card-title">Teléfono</h5>
+          <p class="card-text">+56 9 9895 2677</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body text-center">
+          <h5 class="card-title">Correo Electrónico</h5>
+          <p class="card-text">contacto@fundacionapoyo.org</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12 text-center">
+      <h2 class="display-6">Síguenos en Redes Sociales</h2>
+      <div class="d-flex justify-content-center">
+        <a href="/home" class="btn btn-outline-primary mx-2"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="/home" class="btn btn-outline-info mx-2"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="/home" class="btn btn-outline-danger mx-2"><i class="fab fa-instagram"></i> Instagram</a>
+      </div>
+    </div>
+  </div>
+</div>
+
