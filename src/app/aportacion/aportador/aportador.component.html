@@ -1,28 +1,73 @@
 
-<form [formGroup]="aportadorForm" (ngSubmit)="registrarAportador()">
-  <div>
-    <label for="nombre">Nombre:</label>
-    <input id="nombre" formControlName="nombre" type="text">
+
+<br>
+<br>
+<form [formGroup]="aportadorForm" (ngSubmit)="registrarAportador()" class="needs-validation" novalidate>
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input id="nombre" formControlName="nombre" type="text" class="form-control" required>
+        <div class="invalid-feedback">
+          Por favor, ingrese su nombre.
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mb-3">
+      <div class="col">
+        <label for="rut" class="form-label">RUT:</label>
+        <input id="rut" formControlName="rut" type="text" class="form-control" required>
+        <div class="invalid-feedback">
+          Por favor, ingrese su RUT.
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mb-3">
+      <div class="col">
+        <label for="email" class="form-label">Email:</label>
+        <input id="email" formControlName="email" type="email" class="form-control" required>
+        <div class="invalid-feedback">
+          Por favor, ingrese un email válido.
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mb-3">
+      <div class="col">
+        <label for="monto" class="form-label">Monto:</label>
+        <input id="monto" formControlName="monto" type="number" class="form-control" required>
+        <div class="invalid-feedback">
+          Por favor, ingrese el monto.
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mb-3">
+      <div class="col">
+        <label for="tarjeta" class="form-label">Tarjeta:</label>
+        <input id="tarjeta" formControlName="tarjeta" type="text" class="form-control" required>
+        <div class="invalid-feedback">
+          Por favor, ingrese el número de tarjeta.
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mb-3">
+      <div class="col">
+        <label for="fechaInicio" class="form-label">Fecha de Inicio:</label>
+        <input id="fechaInicio" formControlName="fechaInicio" type="date" class="form-control" required>
+        <div class="invalid-feedback">
+          Por favor, ingrese la fecha de inicio.
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col text-center">
+        <button type="submit" class="btn btn-primary">Registrar Aportador</button>
+      </div>
+    </div>
   </div>
-  <div>
-    <label for="rut">RUT:</label>
-    <input id="rut" formControlName="rut" type="text">
-  </div>
-  <div>
-    <label for="email">Email:</label>
-    <input id="email" formControlName="email" type="email">
-  </div>
-  <div>
-    <label for="monto">Monto:</label>
-    <input id="monto" formControlName="monto" type="number">
-  </div>
-  <div>
-    <label for="tarjeta">Tarjeta:</label>
-    <input id="tarjeta" formControlName="tarjeta" type="text">
-  </div>
-  <div>
-    <label for="fechaInicio">Fecha de Inicio:</label>
-    <input id="fechaInicio" formControlName="fechaInicio" type="date">
-  </div>
-  <button type="submit">Registrar Aportador</button>
 </form>

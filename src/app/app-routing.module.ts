@@ -7,6 +7,9 @@ import { FormularioComponent } from './aportacion/formulario/formulario.componen
 import { SobreNosotrosComponent } from './sobre-nosotros/sobre-nosotros.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ServiciosComponent } from './servicios/servicios.component';
+import { AportadorComponent } from './aportacion/aportador/aportador.component';
+import { AportesComponent } from './aportacion/aportes/aportes.component';
+import { AportadoresComponent } from './aportacion/aportadores/aportadores.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -16,7 +19,10 @@ const routes: Routes = [
   { path: 'formulario', component: FormularioComponent },
   { path: 'sobre-nosotros', component: SobreNosotrosComponent },
   { path: 'contacto', component: ContactoComponent },
-  { path: 'servicios', component: ServiciosComponent }  
+  { path: 'servicios', component: ServiciosComponent },
+  { path: 'crear-aportador', component: AportadorComponent },
+  { path: 'ver-aportes', component: AportesComponent },
+  { path: 'ver-aportadores', component: AportadoresComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

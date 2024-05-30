@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SobreNosotrosComponent } from './sobre-nosotros/sobre-nosotros.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ServiciosComponent } from './servicios/servicios.component';
+import { AportesComponent } from './aportacion/aportes/aportes.component';
+import { AportadoresComponent } from './aportacion/aportadores/aportadores.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ServiciosComponent } from './servicios/servicios.component';
     FormularioComponent,
     SobreNosotrosComponent,
     ContactoComponent,
-    ServiciosComponent
+    ServiciosComponent,
+    AportesComponent,
+    AportadoresComponent
   ],
   imports: [
     BrowserModule,

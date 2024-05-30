@@ -36,6 +36,7 @@ export class FormularioComponent implements OnInit {
     this.aporteService.crearAporte(this.nuevoAporte).subscribe(
       (response) => {
         console.log('Aporte creado exitosamente', response);
+        alert('¡El aporte se ha realizado con éxito!');
       },
       (error) => {
         console.error('Error al crear el aporte', error);
