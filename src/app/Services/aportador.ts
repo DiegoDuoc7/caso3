@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AportadorService {
-  private apiUrl = 'http://localhost:4000/aportadores';
+  private apiUrl = 'https://power-consulting-backend-iwwm.vercel.app/aportadores';
 
   constructor(private http: HttpClient) {}
 
