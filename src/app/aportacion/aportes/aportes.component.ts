@@ -29,4 +29,9 @@ export class AportesComponent implements OnInit {
       }
     );
   }
+  eliminarAporte(id: string): void {
+    this.aporteService.eliminarAporte(id).subscribe(() => {
+      this.obtenerAportes();
+    });
+  }
 }

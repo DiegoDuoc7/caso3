@@ -8,6 +8,7 @@
         <th>Monto</th>
         <th>Aportador</th>
         <th>Fecha</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +16,10 @@
         <td>{{ aporte.monto }}</td>
         <td>{{ aporte.aportadorId.nombre }}</td>
         <td>{{ aporte.fecha | date:'shortDate' }}</td>
+        <td>
+          <button class="btn btn-primary" [routerLink]="['/editar-aporte', aporte._id]">Editar</button>
+          <button class="btn btn-danger" (click)="eliminarAporte(aporte._id)">Eliminar</button>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -10,6 +10,7 @@ import { ServiciosComponent } from './servicios/servicios.component';
 import { AportadorComponent } from './aportacion/aportador/aportador.component';
 import { AportesComponent } from './aportacion/aportes/aportes.component';
 import { AportadoresComponent } from './aportacion/aportadores/aportadores.component';
+import { EditaraporteComponent } from './aportacion/editaraporte/editaraporte.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'servicios', component: ServiciosComponent },
   { path: 'crear-aportador', component: AportadorComponent },
   { path: 'ver-aportes', component: AportesComponent },
-  { path: 'ver-aportadores', component: AportadoresComponent }
+  { path: 'ver-aportadores', component: AportadoresComponent },
+  { path: 'editar-aporte/:id', component: EditaraporteComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

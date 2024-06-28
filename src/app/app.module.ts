@@ -16,6 +16,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { AportesComponent } from './aportacion/aportes/aportes.component';
 import { AportadoresComponent } from './aportacion/aportadores/aportadores.component';
+import { EditaraporteComponent } from './aportacion/editaraporte/editaraporte.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AportadoresComponent } from './aportacion/aportadores/aportadores.compo
     ContactoComponent,
     ServiciosComponent,
     AportesComponent,
-    AportadoresComponent
+    AportadoresComponent,
+    EditaraporteComponent
   ],
   imports: [
     BrowserModule,

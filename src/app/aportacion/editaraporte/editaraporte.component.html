@@ -1,0 +1,18 @@
+<div style="text-align: center; margin-top: 20px;">
+  <h2 style="font-family: Arial, sans-serif; color: #333;">Editar Aporte</h2>
+</div>
+<form>
+  <div class="form-group">
+    <label for="monto">Monto</label>
+    <input type="number" class="form-control" id="monto" [(ngModel)]="aporte.monto" name="monto" required>
+  </div>
+  <div class="form-group">
+    <label for="aportador">Aportador</label>
+    <input type="text" class="form-control" id="aportador" [(ngModel)]="aporte.aportadorId.nombre" name="aportador" required>
+  </div>
+  <div class="form-group">
+    <label for="fecha">Fecha</label>
+    <input type="date" class="form-control" id="fecha" [(ngModel)]="aporte.fecha" name="fecha" required>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="onSubmit()">Guardar</button>
+</form>
