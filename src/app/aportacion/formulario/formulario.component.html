@@ -12,24 +12,27 @@
               <select id="aportadorId" class="form-control" formControlName="aportadorId">
                 <option *ngFor="let aportador of aportadores" [value]="aportador._id">{{ aportador.nombre }}</option>
               </select>
-              <div *ngIf="formulario.get('aportadorId')?.invalid && formulario.get('aportadorId')?.touched">
+              <div *ngIf="formulario.get('aportadorId')?.invalid && formulario.get('aportadorId')?.touched" class="text-danger">
                 Debe seleccionar un aportador.
               </div>
             </div>
             <div class="form-group mt-3">
               <label for="monto">Monto:</label>
               <input type="number" id="monto" class="form-control" formControlName="monto">
-              <div *ngIf="formulario.get('monto')?.invalid && formulario.get('monto')?.touched">
+              <div *ngIf="formulario.get('monto')?.invalid && formulario.get('monto')?.touched" class="text-danger">
                 El monto es requerido.
               </div>
               <div *ngIf="formulario.get('monto')?.hasError('negativeMonto')">
                 El monto debe ser un número positivo.
               </div>
+              <div *ngIf="formulario.get('monto')?.hasError('max')">
+                El monto no debe exceder 100,000,000 por aporte
+              </div>
             </div>
             <div class="form-group mt-3">
               <label for="fecha">Fecha:</label>
-              <input type="date" id="fecha" class="form-control" formControlName="fecha">
-              <div *ngIf="formulario.get('fecha')?.invalid && formulario.get('fecha')?.touched">
+              <input type="date" id="fecha" class="form-control" formControlName="fecha" [value]="today" readonly>
+              <div *ngIf="formulario.get('fecha')?.invalid && formulario.get('fecha')?.touched" class="text-danger">
                 La fecha es requerida.
               </div>
             </div>

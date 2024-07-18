@@ -6,7 +6,7 @@
       <div class="col">
         <label for="nombre" class="form-label">Nombre:</label>
         <input id="nombre" formControlName="nombre" type="text" class="form-control" required>
-        <div *ngIf="aportadorForm.get('nombre')?.invalid && aportadorForm.get('nombre')?.touched">
+        <div *ngIf="aportadorForm.get('nombre')?.invalid && aportadorForm.get('nombre')?.touched" class="text-danger">
           Por favor, ingrese su nombre.
         </div>
       </div>
@@ -16,7 +16,7 @@
       <div class="col">
         <label for="rut" class="form-label">RUT:</label>
         <input id="rut" formControlName="rut" type="text" class="form-control" required>
-        <div *ngIf="aportadorForm.get('rut')?.invalid && aportadorForm.get('rut')?.touched">
+        <div *ngIf="aportadorForm.get('rut')?.invalid && aportadorForm.get('rut')?.touched" class="text-danger">
           Por favor, ingrese su RUT en el formato: 20.254.962-4.
         </div>
       </div>
@@ -26,7 +26,7 @@
       <div class="col">
         <label for="email" class="form-label">Email:</label>
         <input id="email" formControlName="email" type="email" class="form-control" required>
-        <div *ngIf="aportadorForm.get('email')?.invalid && aportadorForm.get('email')?.touched">
+        <div *ngIf="aportadorForm.get('email')?.invalid && aportadorForm.get('email')?.touched" class="text-danger">
           Por favor, ingrese un email válido.
         </div>
       </div>
@@ -36,7 +36,7 @@
       <div class="col">
         <label for="monto" class="form-label">Monto:</label>
         <input id="monto" formControlName="monto" type="number" class="form-control" required>
-        <div *ngIf="aportadorForm.get('monto')?.invalid && aportadorForm.get('monto')?.touched">
+        <div *ngIf="aportadorForm.get('monto')?.invalid && aportadorForm.get('monto')?.touched" class="text-danger">
           Por favor, ingrese el monto, que sea un numero positivo.
         </div>
       </div>
@@ -46,7 +46,7 @@
       <div class="col">
         <label for="tarjeta" class="form-label">Tarjeta:</label>
         <input id="tarjeta" formControlName="tarjeta" type="text" class="form-control" required>
-        <div *ngIf="aportadorForm.get('tarjeta')?.invalid && aportadorForm.get('tarjeta')?.touched">
+        <div *ngIf="aportadorForm.get('tarjeta')?.invalid && aportadorForm.get('tarjeta')?.touched" class="text-danger">
           Por favor, ingrese el número de tarjeta en el formato: 4523-6252-7862-9722.
         </div>
       </div>
@@ -55,13 +55,18 @@
     <div class="row mb-3">
       <div class="col">
         <label for="fechaInicio" class="form-label">Fecha de Inicio:</label>
-        <input id="fechaInicio" formControlName="fechaInicio" type="date" class="form-control" required>
-        <div *ngIf="aportadorForm.get('fechaInicio')?.invalid && aportadorForm.get('fechaInicio')?.touched">
+        <input id="fechaInicio" formControlName="fechaInicio" type="date" class="form-control" [value]="today" required>
+        <div *ngIf="aportadorForm.get('fechaInicio')?.invalid && aportadorForm.get('fechaInicio')?.touched" class="text-danger">
           Por favor, ingrese la fecha de inicio.
+        </div>
+        <div *ngIf="aportadorForm.get('fechaInicio')?.hasError('min') && aportadorForm.get('fechaInicio')?.touched" class="text-danger">
+          La fecha de inicio no puede ser anterior a la fecha actual.
+        </div>
+        <div *ngIf="aportadorForm.get('fechaInicio')?.hasError('max') && aportadorForm.get('fechaInicio')?.touched" class="text-danger">
+          La fecha de inicio no puede ser posterior a 2 años desde la fecha actual.
         </div>
       </div>
     </div>
-    
     <div class="row">
       <div class="col text-center">
         <button type="submit" class="btn btn-primary" [disabled]="aportadorForm.invalid">Registrar Aportador</button>

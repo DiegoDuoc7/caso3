@@ -12,6 +12,7 @@ import { AporteService } from 'src/app/Services/aporte';
 export class FormularioComponent implements OnInit {
   aportadores: any[] = [];
   formulario: FormGroup;
+  today: string;
 
   constructor(
     private fb: FormBuilder,
@@ -19,9 +20,10 @@ export class FormularioComponent implements OnInit {
     private aporteService: AporteService,
     private router: Router
   ) {
+    this.today = new Date().toISOString().split('T')[0]; // Set the value of today
     this.formulario = this.fb.group({
-      fecha: ['', Validators.required],
-      monto: ['', [Validators.required, this.positiveMontoValidator]],
+      fecha: [this.today, Validators.required],
+      monto: ['', [Validators.required, this.positiveMontoValidator, Validators.max(100000000)]],
       aportadorId: ['', Validators.required] // Added aportadorId control
     });
   }

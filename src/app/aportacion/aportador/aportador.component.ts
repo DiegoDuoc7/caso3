@@ -10,17 +10,20 @@ import { Router } from '@angular/router';
 })
 export class AportadorComponent implements OnInit {
   aportadorForm!: FormGroup; // Add definite assignment assertion
+  today: string;
 
-  constructor(private fb: FormBuilder, private aportadorService: AportadorService, private router: Router) {}
+  constructor(private fb: FormBuilder, private aportadorService: AportadorService, private router: Router) {
+    this.today = new Date().toISOString().split('T')[0]; // Set the value of today
+  }
 
   ngOnInit(): void {
     this.aportadorForm = this.fb.group({
-      nombre: ['', [Validators.required]],
+      nombre: ['', [Validators.required, Validators.pattern('.*\\S.*')]],
       rut: ['', [Validators.required, Validators.pattern('^[0-9]{1,3}(?:\.[0-9]{3}){2}-[0-9kK]{1}$')]], // Pattern for RUT in format 27.234.961-4
-      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')]],
+      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|cl)$')]],
       monto: ['', [Validators.required, Validators.min(1)]],
       tarjeta: ['', [Validators.required, Validators.pattern('^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$')]], // Example pattern for card number in format 4523-6252-7862-9722
-      fechaInicio: ['', [Validators.required]]
+      fechaInicio: [this.today, [Validators.required]]
     });
   }
 
