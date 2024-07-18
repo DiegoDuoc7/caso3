@@ -1,5 +1,3 @@
-
-
 <br>
 <br>
 <form [formGroup]="aportadorForm" (ngSubmit)="registrarAportador()" class="needs-validation" novalidate>
@@ -66,7 +64,7 @@
     
     <div class="row">
       <div class="col text-center">
-        <button type="submit" class="btn btn-primary">Registrar Aportador</button>
+        <button type="submit" class="btn btn-primary" [disabled]="aportadorForm.invalid">Registrar Aportador</button>
       </div>
     </div>
   </div>

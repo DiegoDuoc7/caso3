@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AportadorService } from 'src/app/Services/aportador';
 import { Router } from '@angular/router';
@@ -8,18 +8,19 @@ import { Router } from '@angular/router';
   templateUrl: './aportador.component.html',
   styleUrls: ['./aportador.component.css']
 })
-export class AportadorComponent {
+export class AportadorComponent implements OnInit {
   aportadorForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private aportadorService: AportadorService, private router: Router
-  ) {
+  constructor(private fb: FormBuilder, private aportadorService: AportadorService, private router: Router) {}
+
+  ngOnInit(): void {
     this.aportadorForm = this.fb.group({
-      nombre: ['', Validators.required],
-      rut: ['', Validators.required],
+      nombre: ['', [Validators.required]],
+      rut: ['', [Validators.required, Validators.pattern('^[0-9]+-[0-9kK]{1}$')]], // Example pattern for RUT
       email: ['', [Validators.required, Validators.email]],
-      monto: ['', Validators.required],
-      tarjeta: ['', Validators.required],
-      fechaInicio: ['', Validators.required]
+      monto: ['', [Validators.required, Validators.min(1)]],
+      tarjeta: ['', [Validators.required, Validators.pattern('^[0-9]{16}$')]], // Example pattern for card number
+      fechaInicio: ['', [Validators.required]]
     });
   }
 
