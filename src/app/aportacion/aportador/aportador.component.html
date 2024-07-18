@@ -6,7 +6,7 @@
       <div class="col">
         <label for="nombre" class="form-label">Nombre:</label>
         <input id="nombre" formControlName="nombre" type="text" class="form-control" required>
-        <div class="invalid-feedback">
+        <div *ngIf="aportadorForm.get('nombre')?.invalid && aportadorForm.get('nombre')?.touched">
           Por favor, ingrese su nombre.
         </div>
       </div>
@@ -16,8 +16,8 @@
       <div class="col">
         <label for="rut" class="form-label">RUT:</label>
         <input id="rut" formControlName="rut" type="text" class="form-control" required>
-        <div class="invalid-feedback">
-          Por favor, ingrese su RUT.
+        <div *ngIf="aportadorForm.get('rut')?.invalid && aportadorForm.get('rut')?.touched">
+          Por favor, ingrese su RUT en el formato: 20.254.962-4.
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
       <div class="col">
         <label for="email" class="form-label">Email:</label>
         <input id="email" formControlName="email" type="email" class="form-control" required>
-        <div class="invalid-feedback">
+        <div *ngIf="aportadorForm.get('email')?.invalid && aportadorForm.get('email')?.touched">
           Por favor, ingrese un email válido.
         </div>
       </div>
@@ -36,8 +36,8 @@
       <div class="col">
         <label for="monto" class="form-label">Monto:</label>
         <input id="monto" formControlName="monto" type="number" class="form-control" required>
-        <div class="invalid-feedback">
-          Por favor, ingrese el monto.
+        <div *ngIf="aportadorForm.get('monto')?.invalid && aportadorForm.get('monto')?.touched">
+          Por favor, ingrese el monto, que sea un numero positivo.
         </div>
       </div>
     </div>
@@ -46,8 +46,8 @@
       <div class="col">
         <label for="tarjeta" class="form-label">Tarjeta:</label>
         <input id="tarjeta" formControlName="tarjeta" type="text" class="form-control" required>
-        <div class="invalid-feedback">
-          Por favor, ingrese el número de tarjeta.
+        <div *ngIf="aportadorForm.get('tarjeta')?.invalid && aportadorForm.get('tarjeta')?.touched">
+          Por favor, ingrese el número de tarjeta en el formato: 4523-6252-7862-9722.
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
       <div class="col">
         <label for="fechaInicio" class="form-label">Fecha de Inicio:</label>
         <input id="fechaInicio" formControlName="fechaInicio" type="date" class="form-control" required>
-        <div class="invalid-feedback">
+        <div *ngIf="aportadorForm.get('fechaInicio')?.invalid && aportadorForm.get('fechaInicio')?.touched">
           Por favor, ingrese la fecha de inicio.
         </div>
       </div>

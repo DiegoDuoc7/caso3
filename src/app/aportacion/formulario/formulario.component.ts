@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { AportadorService } from 'src/app/Services/aportador';
 import { AporteService } from 'src/app/Services/aporte';
 
@@ -20,8 +20,9 @@ export class FormularioComponent implements OnInit {
     private router: Router
   ) {
     this.formulario = this.fb.group({
-      nombre: ['', Validators.required],
-      cantidad: ['', [Validators.required, Validators.min(1)]],
+      fecha: ['', Validators.required],
+      monto: ['', [Validators.required, this.positiveMontoValidator]],
+      aportadorId: ['', Validators.required] // Added aportadorId control
     });
   }
 
@@ -53,5 +54,12 @@ export class FormularioComponent implements OnInit {
         }
       );
     }
+  }
+
+  positiveMontoValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    if (control.value <= 0) {
+      return { 'negativeMonto': true };
+    }
+    return null;
   }
 }
